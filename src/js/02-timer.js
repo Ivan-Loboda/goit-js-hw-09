@@ -24,8 +24,8 @@ function convertMs(ms) {
 
 
 const inputForm = document.querySelector('#date-selector');
-const startButton = document.querySelector('button[data-start]');
-const stopButton = document.querySelector('button[data-stop]');
+const btnStart = document.querySelector('button[data-start]');
+const btnStop = document.querySelector('button[data-stop]');
 
 const daysLog = document.querySelector('span[data-days]');
 const hoursLog = document.querySelector('span[data-hours]');
@@ -39,7 +39,7 @@ timeBoard.style.display = 'flex';
 timeBoard.style.marginTop = '20px';
 
 
-startButton.disabled = true;
+btnStart.disabled = true;
 
 let countDown = {};
 let currentDate = new Date();
@@ -53,7 +53,7 @@ const options = {
     onClose(selectedDates) {
         selectedDate = selectedDates[0];
         if (selectedDate > currentDate) {
-            startButton.disabled = false;
+            btnStart.disabled = false;
         } else {
             notiflix.Notify.warning('Please choose a date in the future');
         }
@@ -63,7 +63,7 @@ const options = {
 flatpickr(inputForm, options);
 
 
-startButton.addEventListener('click', startTimer);
+btnStart.addEventListener('click', startTimer);
 
 let timerId;
 
@@ -80,7 +80,7 @@ function startTimer() {
     }, 1000);
 };
 
-stopButton.addEventListener('click', stopTimer);
+btnStop.addEventListener('click', stopTimer);
 
 function stopTimer() {
     clearInterval(timerId);

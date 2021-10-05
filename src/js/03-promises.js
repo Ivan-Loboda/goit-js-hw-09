@@ -22,9 +22,9 @@ function createPromise(position, delay) {
 
 const inputForm = document.querySelector('.form');
 
-inputForm.addEventListener('submit', onSubmit);
+inputForm.addEventListener('submit', createPromise);
 
-function onSubmit(event) {
+function createPromise(event) {
   event.preventDefault();
 
   let delay = parseInt(event.target.elements.delay.value);
